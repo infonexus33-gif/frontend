@@ -70,23 +70,23 @@
       if (!username || !password) return alert("Completá todos los campos.");
 
       try {
-        console.log("📡 Enviando:", { username });
+        console.log("📡 Enviando:", { username, password });
 
         const res = await fetch(API_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password }),
+          headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ username, password })
         });
 
         console.log("📩 Estado:", res.status);
-        const text = await res.text();
-        console.log("📦 Respuesta:", text);
 
-        let data;
-        try {
-          data = JSON.parse(text);
-        } catch {
-          alert("⚠️ El servidor devolvió una respuesta no válida.");
+        const data = await res.json().catch(() => null);
+
+        if (!data) {
+          alert("⚠️ El servidor no devolvió una respuesta válida.");
           return;
         }
 
@@ -97,6 +97,7 @@
 
         localStorage.setItem("token", data.token);
         localStorage.setItem("usuario", data.nombre);
+
         alert("✅ Inicio de sesión exitoso, bienvenido " + data.nombre);
         window.location.href = "index.html";
 
