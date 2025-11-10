@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  font-weight: 600;
+  color: #111827;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.mood-btn.selected { transform: scale(1.2); background-color: #d0ebff; border-radius: 50%; }
+.habit-cell.checked { background-color: #74c0fc; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+thead {
+  background: #111827;
+  color: #f9fafb;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 40px;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#addRowBtn,
+#addClientBtn {
+  margin-top: 10px;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+#addRowBtn:hover,
+#addClientBtn:hover {
+  background: #1d4ed8;
+}
+
+.saveBtn, .saveClient {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+.saveBtn:hover, .saveClient:hover {
+  background: #16a34a;
+}
+
+.deleteClient {
+  background: #ef4444;
+  color: #ffffff;
+  margin-left: 4px;
+}
+
+.deleteClient:hover {
+  background: #dc2626;
+}
+
+.totales {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #ffffff;
+  padding: 12px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+#mesSelect {
+  max-width: 150px;
+}
+
+#totalPagadoMes {
+  margin: 0;
+  font-weight: 600;
+  color: #16a34a;
+}
