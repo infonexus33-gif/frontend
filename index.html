@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>📅 Planificador de Contenido & Gestión de Clientes</h1>
+      <h1>📅 Planificador de Contenido & Gestión de Clientes</hh1>
       <button id="logoutBtn" class="logout">Cerrar Sesión</button>
     </header>
 
@@ -71,8 +71,8 @@
     <!-- ================= MOOD TRACKER ================= -->
     <section id="moodTracker">
       <h2>😊 Estado de Ánimo</h2>
-      <p>¿Cómo fue tu humor hoy?</p>
-      <div class="mood-faces">
+
+      <div class="mood-row">
         <button class="mood-btn" data-mood="5">😁</button>
         <button class="mood-btn" data-mood="4">🙂</button>
         <button class="mood-btn" data-mood="3">😐</button>
@@ -81,57 +81,78 @@
       </div>
 
       <p>¿Nivel de energía?</p>
-      <input type="range" id="energyRange" min="0" max="100" step="20" value="60" />
+      <input type="range" id="energyRange" min="0" max="100" step="5" value="60" />
       <div class="energy-value"><span id="energyValue">60%</span> ⚡</div>
 
-      <canvas id="moodChart" width="250" height="250"></canvas>
+      <canvas id="moodChart"></canvas>
     </section>
 
     <hr />
 
-    <!-- ================= LÍNEA DE TIEMPO ================= -->
+    <!-- ================= TIMELINE ================= -->
     <section id="timeline">
       <h2>🗓️ Línea de Tiempo Personal</h2>
-      <div id="timelineEntries"></div>
-      <div class="add-entry">
-        <textarea id="timelineText" placeholder="Escribí algo que quieras recordar hoy..."></textarea>
+
+      <div class="timeline-container" id="timelineContainer"></div>
+
+      <div class="timeline-add">
+        <input type="date" id="timelineDate" />
+        <textarea id="timelineText" placeholder="Escribí algo que quieras recordar..."></textarea>
         <button id="addEntryBtn">➕ Agregar entrada</button>
       </div>
     </section>
 
     <hr />
 
-    <!-- ================= LISTA DE TAREAS ================= -->
+    <!-- ================= LISTA DE PRIORIDADES ================= -->
     <section id="lista">
       <h2>🧩 Lista de Prioridades</h2>
-      <div class="task-lists">
-        <div class="task-group">
+
+      <div class="priority-grid">
+
+        <div class="priority-col" data-cat="Must">
           <h3>⭐ Must</h3>
-          <ul id="mustList"></ul>
-          <button class="add-task" data-list="mustList">+ Agregar</button>
+          <ul id="mustList" class="priority-list"></ul>
+          <button class="add-task" data-list="Must">+ Agregar</button>
         </div>
 
-        <div class="task-group">
+        <div class="priority-col" data-cat="Should">
           <h3>💡 Should</h3>
-          <ul id="shouldList"></ul>
-          <button class="add-task" data-list="shouldList">+ Agregar</button>
+          <ul id="shouldList" class="priority-list"></ul>
+          <button class="add-task" data-list="Should">+ Agregar</button>
         </div>
 
-        <div class="task-group">
+        <div class="priority-col" data-cat="Want">
           <h3>🌱 Want</h3>
-          <ul id="wantList"></ul>
-          <button class="add-task" data-list="wantList">+ Agregar</button>
+          <ul id="wantList" class="priority-list"></ul>
+          <button class="add-task" data-list="Want">+ Agregar</button>
         </div>
+
       </div>
     </section>
 
     <hr />
 
-    <!-- ================= HABIT TRACKER ================= -->
+    <!-- ================= HABIT TRACKER RADIAL ================= -->
     <section id="habits">
       <h2>🔁 Habit Tracker</h2>
-      <p>Marcá tus hábitos diarios del mes:</p>
-      <div id="habitGrid"></div>
+
+      <div class="tracker-wrapper">
+        <div class="habit-list">
+          <h3>Diciembre</h3>
+          <ul>
+            <li><span class="color blue"></span> Caminar 5000 pasos</li>
+            <li><span class="color pink"></span> Journaling</li>
+            <li><span class="color purple"></span> 8 vasos de agua</li>
+            <li><span class="color orange"></span> Leer</li>
+          </ul>
+        </div>
+
+        <div class="tracker-container">
+          <svg id="habitTracker"></svg>
+        </div>
+      </div>
+
     </section>
   </div>
 
